@@ -119,7 +119,7 @@ variable "aws_transit_ue2_gw_ha_subnet" {
 # AWS Spoke Shared Service
 variable "aws_spoke_shared_services_name" {
   type = string
-  default = "aws-ue2-spoke-shared_services"
+  default = "aws-ue2-spoke-shared-services"
 }
 variable "aws_spoke_shared_services_cidr" {
   type = string
