@@ -12,7 +12,12 @@ variable "controller_password" {
 
 variable "aws_access_account" {
   type = string
-  description = "Provide Aviatrix Access Account name"
+  description = "Provide Aviatrix AWS Access Account name"
+}
+
+variable "az_access_account" {
+  type = string
+  description = "Provide Aviatrix Azure Access Account name"
 }
 
 variable "aws_region" {
@@ -29,3 +34,4 @@ variable "aws_transit_name" {
   type = string
   default = "aws-ue1-transit"
 }
+
