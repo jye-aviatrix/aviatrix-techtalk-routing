@@ -167,11 +167,7 @@ variable "az_spoke_prod_cidr" {
 }
 variable "az_spoke_prod_gw_subnet" {
   type = string
-  default = "10.64.20.96/28"
-}
-variable "az_spoke_prod_gw_ha_subnet" {
-  type = string
-  default = "10.64.20.112/28"
+  default = "10.64.20.0/28"
 }
 
 # Azure Spoke QA
@@ -186,9 +182,5 @@ variable "az_spoke_qa_cidr" {
 }
 variable "az_spoke_qa_gw_subnet" {
   type = string
-  default = "10.64.120.96/28"
-}
-variable "az_spoke_qa_gw_ha_subnet" {
-  type = string
-  default = "10.64.120.112/28"
+  default = "10.64.120.0/28"
 }
