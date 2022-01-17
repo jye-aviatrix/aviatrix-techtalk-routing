@@ -31,7 +31,32 @@ variable "az_region" {
 }
 
 
-# AWS Transit
+# AWS Transit ue2
+variable "aws_region_ue2" {
+  type = string
+  default = "us-east-2"
+}
+
+variable "aws_transit_ue2_name" {
+  type = string
+  default = "aws-ue2-transit"
+}
+variable "aws_transit_ue2_cidr" {
+  type = string
+  default = "10.16.254.0/23"
+}
+
+variable "aws_transit_ue2_gw_subnet" {
+  type = string
+  default = "10.16.254.64/28"
+}
+
+variable "aws_transit_ue2_gw_ha_subnet" {
+  type = string
+  default = "10.16.254.96/28"
+}
+
+# AWS Transit ue1
 variable "aws_transit_name" {
   type = string
   default = "aws-ue1-transit"
