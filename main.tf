@@ -39,3 +39,16 @@ resource "aviatrix_vpc" "aws_ue1_spoke_prod_vpc" {
   aviatrix_transit_vpc = false
   aviatrix_firenet_vpc = false
 }
+
+
+
+# AWS Spoke QA VPC for us-east-1
+resource "aviatrix_vpc" "aws_ue1_spoke_qa_vpc" {
+  cloud_type           = 1
+  account_name         = var.aws_access_account
+  region               = var.aws_region
+  name                 = var.aws_spoke_qa_name
+  cidr                 = var.aws_spoke_qa_cidr
+  aviatrix_transit_vpc = false
+  aviatrix_firenet_vpc = false
+}

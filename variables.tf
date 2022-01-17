@@ -55,3 +55,14 @@ variable "aws_spoke_prod_cidr" {
   type = string
   default = "10.32.20.0/24"
 }
+
+
+# AWS Spoke QA
+variable "aws_spoke_qa_name" {
+  type = string
+  default = "aws-ue1-spoke-qa"
+}
+variable "aws_spoke_qa_cidr" {
+  type = string
+  default = "10.32.120.0/24"
+}
