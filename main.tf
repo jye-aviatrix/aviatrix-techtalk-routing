@@ -57,6 +57,8 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_prod_gw" {
 }
 
 
+
+
 # AWS Spoke QA VPC for us-east-1
 resource "aviatrix_vpc" "aws_ue1_spoke_qa_vpc" {
   cloud_type           = 1
@@ -79,6 +81,36 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
+}
+
+
+# AWS Transit VPC for us-east-2
+resource "aviatrix_vpc" "aws_ue2_transit_vpc" {
+  cloud_type           = 1
+  account_name         = var.aws_access_account
+  region               = var.aws_region_ue2
+  name                 = var.aws_transit_ue2_name
+  cidr                 = var.aws_transit_ue2_cidr
+  aviatrix_transit_vpc = true
+  aviatrix_firenet_vpc = false
+}
+
+
+# AWS Transit GW for us-east-2
+
+resource "aviatrix_transit_gateway" "aws_ue2_transit_gw" {
+  cloud_type               = 1
+  account_name             = var.aws_access_account
+  gw_name                  = var.aws_transit_ue2_name
+  vpc_id                   = aviatrix_vpc.aws_ue2_transit_vpc.vpc_id
+  vpc_reg                  = var.aws_region_ue2
+  gw_size                  = "t3.small"
+  subnet                   = var.aws_transit_ue2_gw_subnet
+  ha_subnet                = var.aws_transit_ue2_gw_ha_subnet
+  ha_gw_size               = "t3.small"
+  enable_active_mesh       = true
+  enable_hybrid_connection = false
+  connected_transit        = true
 }
 
 
