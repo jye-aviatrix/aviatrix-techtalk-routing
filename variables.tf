@@ -15,15 +15,21 @@ variable "aws_access_account" {
   description = "Provide Aviatrix AWS Access Account name"
 }
 
+variable "aws_region" {
+  type = string
+  default = "us-east-1"
+}
+
 variable "az_access_account" {
   type = string
   description = "Provide Aviatrix Azure Access Account name"
 }
 
-variable "aws_region" {
+variable "az_region" {
   type = string
-  default = "us-east-1"
+  default = "west us"
 }
+
 
 # AWS Transit
 variable "aws_transit_name" {
@@ -82,3 +88,24 @@ variable "aws_spoke_qa_gw_ha_subnet" {
   type = string
   default = "10.32.120.112/28"
 }
+
+
+# Azure Transit
+variable "az_transit_name" {
+  type = string
+  default = "az-wu-transit-fw"
+}
+variable "az_transit_cidr" {
+  type = string
+  default = "10.64.252.0/23"
+}
+
+# variable "az_transit_gw_subnet" {
+#   type = string
+#   default = "10.64.252.64/28"
+# }
+
+# variable "aws_transit_gw_ha_subnet" {
+#   type = string
+#   default = "10.32.254.96/28"
+# }

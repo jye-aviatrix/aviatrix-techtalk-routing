@@ -80,3 +80,15 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
 }
+
+
+# Azure Transit VPC for east-us-2
+resource "aviatrix_vpc" "az_wu_transit_vpc" {
+  cloud_type           = 1
+  account_name         = var.az_access_account
+  region               = var.az_region
+  name                 = var.az_transit_name
+  cidr                 = var.az_transit_cidr
+  aviatrix_transit_vpc = true
+  aviatrix_firenet_vpc = true
+}
