@@ -83,7 +83,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
 
 
 # Azure Transit VPC for West US
-resource "aviatrix_vpc" "az_wu_transit_firenet_vpc" {
+resource "aviatrix_vpc" "az_wu2_transit_firenet_vpc" {
   cloud_type           = 8
   account_name         = var.az_access_account
   region               = var.az_region
@@ -93,7 +93,7 @@ resource "aviatrix_vpc" "az_wu_transit_firenet_vpc" {
   aviatrix_firenet_vpc = true
 }
 
-resource "aviatrix_transit_gateway" "az_wu_transit_firenet_gw" {
+resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
   cloud_type         = 8
   account_name       = var.az_access_account
   gw_name            = var.az_transit_firenet_name

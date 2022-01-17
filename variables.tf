@@ -27,7 +27,7 @@ variable "az_access_account" {
 
 variable "az_region" {
   type = string
-  default = "West US"
+  default = "West US 2"
 }
 
 
