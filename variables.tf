@@ -159,7 +159,7 @@ variable "az_transit_firenet_gw_ha_subnet" {
 
 variable "az_spoke_prod_name" {
   type = string
-  default = "az-wu2-prod-qa"
+  default = "az-wu2-spoke-prod"
 }
 variable "az_spoke_prod_cidr" {
   type = string

@@ -138,7 +138,7 @@ resource "aviatrix_spoke_gateway" "aws_ue2_spoke_qa_gw" {
   manage_transit_gateway_attachment = false
 }
 
-# Azure Transit VPC for West US
+# Azure Transit VPC for West US 2
 resource "aviatrix_vpc" "az_wu2_transit_firenet_vpc" {
   cloud_type           = 8
   account_name         = var.az_access_account
@@ -163,4 +163,29 @@ resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
   ha_gw_size         = "Standard_B2ms"
   connected_transit  = true
   enable_active_mesh = true
+}
+
+
+# Azure Spoke Prod VPC for West US 2
+resource "aviatrix_vpc" "aws_ue2_spoke_prod_vpc" {
+  cloud_type           = 8
+  account_name         = var.az_access_account
+  region               = var.az_region
+  name                 = var.az_spoke_prod_name
+  cidr                 = var.az_spoke_prod_cidr
+  aviatrix_transit_vpc = false
+  aviatrix_firenet_vpc = false
+}
+
+resource "aviatrix_spoke_gateway" "aws_ue2_spoke_prod_gw" {
+  cloud_type                        = 1
+  account_name                      = var.az_access_account
+  gw_name                           = var.az_spoke_prod_name
+  vpc_id                            = aviatrix_vpc.aws_ue2_spoke_prod_vpc.vpc_id
+  vpc_reg                           = var.az_region
+  gw_size                           = "Standard_B2ms"
+  subnet                            = var.az_spoke_prod_gw_subnet
+  single_ip_snat                    = false
+  enable_active_mesh                = true
+  manage_transit_gateway_attachment = false
 }
