@@ -82,7 +82,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
 }
 
 
-# Azure Transit VPC for east-us-2
+# Azure Transit VPC for West US
 resource "aviatrix_vpc" "az_wu_transit_firenet_vpc" {
   cloud_type           = 8
   account_name         = var.az_access_account
@@ -91,4 +91,21 @@ resource "aviatrix_vpc" "az_wu_transit_firenet_vpc" {
   cidr                 = var.az_transit_firenet_cidr
   aviatrix_transit_vpc = false
   aviatrix_firenet_vpc = true
+}
+
+resource "aviatrix_transit_gateway" "az_wu_transit_firenet_gw" {
+  cloud_type         = 8
+  account_name       = var.az_access_account
+  gw_name            = var.az_transit_firenet_name
+  vpc_id             = aviatrix_vpc.az_wu_transit_firenet_vpc.vpc_id
+  vpc_reg            = var.az_region
+  gw_size            = "Standard_B2ms"
+  subnet             = var.az_transit_firenet_gw_subnet
+  zone               = "az-1"
+  ha_subnet          = var.az_transit_firenet_gw_ha_subnet
+  ha_zone            = "az-2"
+  ha_gw_size         = "Standard_B2ms"
+  connected_transit  = true
+  enable_active_mesh = true
+  enable_firenet     = true
 }

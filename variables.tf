@@ -100,12 +100,12 @@ variable "az_transit_firenet_cidr" {
   default = "10.64.252.0/23"
 }
 
-# variable "az_transit_gw_subnet" {
-#   type = string
-#   default = "10.64.252.64/28"
-# }
+variable "az_transit_firenet_gw_subnet" {
+  type = string
+  default = "10.64.252.32/28"
+}
 
-# variable "aws_transit_gw_ha_subnet" {
-#   type = string
-#   default = "10.32.254.96/28"
-# }
+variable "aws_transit_firenet_gw_ha_subnet" {
+  type = string
+  default = "10.32.252.48/28"
+}
