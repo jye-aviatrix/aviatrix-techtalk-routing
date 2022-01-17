@@ -72,22 +72,22 @@ variable "aws_spoke_prod_gw_ha_subnet" {
 }
 
 
-# AWS Spoke QA
-variable "aws_spoke_qa_name" {
+# AWS Spoke Shared Service
+variable "aws_spoke_shared_service_name" {
   type = string
-  default = "aws-ue1-spoke-qa"
+  default = "aws-ue1-spoke-shared_service"
 }
-variable "aws_spoke_qa_cidr" {
+variable "aws_spoke_shared_service_cidr" {
   type = string
-  default = "10.32.120.0/24"
+  default = "10.32.10.0/24"
 }
-variable "aws_spoke_qa_gw_subnet" {
+variable "aws_spoke_shared_service_gw_subnet" {
   type = string
-  default = "10.32.120.96/28"
+  default = "10.32.10.96/28"
 }
-variable "aws_spoke_qa_gw_ha_subnet" {
+variable "aws_spoke_shared_service_gw_ha_subnet" {
   type = string
-  default = "10.32.120.112/28"
+  default = "10.32.10.112/28"
 }
 
 
@@ -116,22 +116,22 @@ variable "aws_transit_ue2_gw_ha_subnet" {
   default = "10.16.254.96/28"
 }
 
-# AWS Spoke Shared Service
-variable "aws_spoke_shared_services_name" {
+# AWS Spoke QA
+variable "aws_spoke_qa_name" {
   type = string
-  default = "aws-ue2-spoke-shared-services"
+  default = "aws-ue2-spoke-qa"
 }
-variable "aws_spoke_shared_services_cidr" {
+variable "aws_spoke_qa_cidr" {
   type = string
-  default = "10.16.10.0/24"
+  default = "10.16.120.0/24"
 }
-variable "aws_spoke_shared_services_gw_subnet" {
+variable "aws_spoke_qa_gw_subnet" {
   type = string
-  default = "10.16.10.48/28"
+  default = "10.16.120.48/28"
 }
-variable "aws_spoke_shared_services_gw_ha_subnet" {
+variable "aws_spoke_qa_gw_ha_subnet" {
   type = string
-  default = "10.16.10.64/28"
+  default = "10.16.120.64/28"
 }
 
 # Azure Transit

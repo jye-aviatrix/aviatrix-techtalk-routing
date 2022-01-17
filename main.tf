@@ -59,25 +59,25 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_prod_gw" {
 
 
 
-# AWS Spoke QA VPC for us-east-1
-resource "aviatrix_vpc" "aws_ue1_spoke_qa_vpc" {
+# AWS Spoke Shared Service VPC for us-east-1
+resource "aviatrix_vpc" "aws_ue1_spoke_shared_service_vpc" {
   cloud_type           = 1
   account_name         = var.aws_access_account
   region               = var.aws_region_ue1
-  name                 = var.aws_spoke_qa_name
-  cidr                 = var.aws_spoke_qa_cidr
+  name                 = var.aws_spoke_shared_service_name
+  cidr                 = var.aws_spoke_shared_service_cidr
   aviatrix_transit_vpc = false
   aviatrix_firenet_vpc = false
 }
 
-resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
+resource "aviatrix_spoke_gateway" "aws_ue1_spoke_shared_service_gw" {
   cloud_type                        = 1
   account_name                      = var.aws_access_account
-  gw_name                           = var.aws_spoke_qa_name
-  vpc_id                            = aviatrix_vpc.aws_ue1_spoke_qa_vpc.vpc_id
+  gw_name                           = var.aws_spoke_shared_service_name
+  vpc_id                            = aviatrix_vpc.aws_ue1_spoke_shared_service_vpc.vpc_id
   vpc_reg                           = var.aws_region_ue1
   gw_size                           = "t3.small"
-  subnet                            = var.aws_spoke_qa_gw_subnet
+  subnet                            = var.aws_spoke_shared_service_gw_subnet
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
@@ -114,25 +114,25 @@ resource "aviatrix_transit_gateway" "aws_ue2_transit_gw" {
 }
 
 
-# AWS Spoke Shared Service VPC for us-east-2
-resource "aviatrix_vpc" "aws_ue2_spoke_shared_services_vpc" {
+# AWS Spoke QA VPC for us-east-2
+resource "aviatrix_vpc" "aws_ue2_spoke_qa_vpc" {
   cloud_type           = 1
   account_name         = var.aws_access_account
   region               = var.aws_region_ue2
-  name                 = var.aws_spoke_shared_services_name
-  cidr                 = var.aws_spoke_shared_services_cidr
+  name                 = var.aws_spoke_qa_name
+  cidr                 = var.aws_spoke_qa_cidr
   aviatrix_transit_vpc = false
   aviatrix_firenet_vpc = false
 }
 
-resource "aviatrix_spoke_gateway" "aws_ue2_spoke_shared_services_gw" {
+resource "aviatrix_spoke_gateway" "aws_ue2_spoke_qa_gw" {
   cloud_type                        = 1
   account_name                      = var.aws_access_account
-  gw_name                           = var.aws_spoke_shared_services_name
-  vpc_id                            = aviatrix_vpc.aws_ue2_spoke_shared_services_vpc.vpc_id
+  gw_name                           = var.aws_spoke_qa_name
+  vpc_id                            = aviatrix_vpc.aws_ue2_spoke_qa_vpc.vpc_id
   vpc_reg                           = var.aws_region_ue2
   gw_size                           = "t3.small"
-  subnet                            = var.aws_spoke_shared_services_gw_subnet
+  subnet                            = var.aws_spoke_qa_gw_subnet
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
