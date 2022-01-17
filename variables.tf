@@ -93,7 +93,7 @@ variable "aws_spoke_qa_gw_ha_subnet" {
 # Azure Transit
 variable "az_transit_firenet_name" {
   type = string
-  default = "az-wu-transit-fw"
+  default = "az-wu2-transit-fw"
 }
 variable "az_transit_firenet_cidr" {
   type = string
