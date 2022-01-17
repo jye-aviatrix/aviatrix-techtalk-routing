@@ -84,7 +84,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
 
 # Azure Transit VPC for east-us-2
 resource "aviatrix_vpc" "az_wu_transit_firenet_vpc" {
-  cloud_type           = 1
+  cloud_type           = 8
   account_name         = var.az_access_account
   region               = var.az_region
   name                 = var.az_transit_firenet_name
