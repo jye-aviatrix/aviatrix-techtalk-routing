@@ -19,10 +19,10 @@ resource "aviatrix_transit_gateway" "aws_ue1_transit_gw" {
   gw_name                  = var.aws_transit_name
   vpc_id                   = aviatrix_vpc.aws_ue1_transit_vpc.vpc_id
   vpc_reg                  = var.aws_region
-  gw_size                  = "t2.micro"
+  gw_size                  = "t3.small"
   subnet                   = var.aws_transit_gw_subnet
   ha_subnet                = var.aws_transit_gw_ha_subnet
-  ha_gw_size               = "t2.micro"
+  ha_gw_size               = "t3.small"
   enable_active_mesh       = true
   enable_hybrid_connection = false
   connected_transit        = true
