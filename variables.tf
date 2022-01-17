@@ -107,5 +107,5 @@ variable "az_transit_firenet_gw_subnet" {
 
 variable "az_transit_firenet_gw_ha_subnet" {
   type = string
-  default = "10.32.252.48/28"
+  default = "10.64.252.48/28"
 }
