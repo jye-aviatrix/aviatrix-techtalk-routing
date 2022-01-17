@@ -75,7 +75,7 @@ variable "aws_spoke_prod_gw_ha_subnet" {
 # AWS Spoke Shared Service
 variable "aws_spoke_shared_service_name" {
   type = string
-  default = "aws-ue1-spoke-shared_service"
+  default = "aws-ue1-spoke-shared-service"
 }
 variable "aws_spoke_shared_service_cidr" {
   type = string
