@@ -178,7 +178,7 @@ resource "aviatrix_vpc" "aws_ue2_spoke_prod_vpc" {
 }
 
 resource "aviatrix_spoke_gateway" "aws_ue2_spoke_prod_gw" {
-  cloud_type                        = 1
+  cloud_type                        = 8
   account_name                      = var.az_access_account
   gw_name                           = var.az_spoke_prod_name
   vpc_id                            = aviatrix_vpc.aws_ue2_spoke_prod_vpc.vpc_id
