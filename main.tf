@@ -3,7 +3,7 @@
 resource "aviatrix_vpc" "aws_ue1_transit_vpc" {
   cloud_type           = 1
   account_name         = var.aws_access_account
-  region               = var.aws_region
+  region               = var.aws_region_ue1
   name                 = var.aws_transit_name
   cidr                 = var.aws_transit_cidr
   aviatrix_transit_vpc = true
@@ -18,7 +18,7 @@ resource "aviatrix_transit_gateway" "aws_ue1_transit_gw" {
   account_name             = var.aws_access_account
   gw_name                  = var.aws_transit_name
   vpc_id                   = aviatrix_vpc.aws_ue1_transit_vpc.vpc_id
-  vpc_reg                  = var.aws_region
+  vpc_reg                  = var.aws_region_ue1
   gw_size                  = "t3.small"
   subnet                   = var.aws_transit_gw_subnet
   ha_subnet                = var.aws_transit_gw_ha_subnet
@@ -33,7 +33,7 @@ resource "aviatrix_transit_gateway" "aws_ue1_transit_gw" {
 resource "aviatrix_vpc" "aws_ue1_spoke_prod_vpc" {
   cloud_type           = 1
   account_name         = var.aws_access_account
-  region               = var.aws_region
+  region               = var.aws_region_ue1
   name                 = var.aws_spoke_prod_name
   cidr                 = var.aws_spoke_prod_cidr
   aviatrix_transit_vpc = false
@@ -46,7 +46,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_prod_gw" {
   account_name                      = var.aws_access_account
   gw_name                           = var.aws_spoke_prod_name
   vpc_id                            = aviatrix_vpc.aws_ue1_spoke_prod_vpc.vpc_id
-  vpc_reg                           = var.aws_region
+  vpc_reg                           = var.aws_region_ue1
   gw_size                           = "t3.small"
   subnet                            = var.aws_spoke_prod_gw_subnet
   ha_gw_size                        = "t3.small"
@@ -63,7 +63,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_prod_gw" {
 resource "aviatrix_vpc" "aws_ue1_spoke_qa_vpc" {
   cloud_type           = 1
   account_name         = var.aws_access_account
-  region               = var.aws_region
+  region               = var.aws_region_ue1
   name                 = var.aws_spoke_qa_name
   cidr                 = var.aws_spoke_qa_cidr
   aviatrix_transit_vpc = false
@@ -75,7 +75,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
   account_name                      = var.aws_access_account
   gw_name                           = var.aws_spoke_qa_name
   vpc_id                            = aviatrix_vpc.aws_ue1_spoke_qa_vpc.vpc_id
-  vpc_reg                           = var.aws_region
+  vpc_reg                           = var.aws_region_ue1
   gw_size                           = "t3.small"
   subnet                            = var.aws_spoke_qa_gw_subnet
   single_ip_snat                    = false

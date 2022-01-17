@@ -15,7 +15,7 @@ variable "aws_access_account" {
   description = "Provide Aviatrix AWS Access Account name"
 }
 
-variable "aws_region" {
+variable "aws_region_ue1" {
   type = string
   default = "us-east-1"
 }
