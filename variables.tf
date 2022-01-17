@@ -109,3 +109,42 @@ variable "az_transit_firenet_gw_ha_subnet" {
   type = string
   default = "10.64.252.48/28"
 }
+
+
+# Azure Spoke Prod
+
+variable "az_spoke_prod_name" {
+  type = string
+  default = "az-wu2-prod-qa"
+}
+variable "az_spoke_prod_cidr" {
+  type = string
+  default = "10.64.20.0/24"
+}
+variable "az_spoke_prod_gw_subnet" {
+  type = string
+  default = "10.64.20.96/28"
+}
+variable "az_spoke_prod_gw_ha_subnet" {
+  type = string
+  default = "10.64.20.112/28"
+}
+
+# Azure Spoke QA
+
+variable "az_spoke_qa_name" {
+  type = string
+  default = "az-wu2-spoke-qa"
+}
+variable "az_spoke_qa_cidr" {
+  type = string
+  default = "10.64.120.0/24"
+}
+variable "az_spoke_qa_gw_subnet" {
+  type = string
+  default = "10.64.120.96/28"
+}
+variable "az_spoke_qa_gw_ha_subnet" {
+  type = string
+  default = "10.64.120.112/28"
+}
