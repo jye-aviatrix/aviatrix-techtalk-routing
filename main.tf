@@ -167,7 +167,7 @@ resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
 
 
 # Azure Spoke Prod VPC for West US 2
-resource "aviatrix_vpc" "az_ue2_spoke_prod_vpc" {
+resource "aviatrix_vpc" "az_wu2_spoke_prod_vpc" {
   cloud_type           = 8
   account_name         = var.az_access_account
   region               = var.az_region
@@ -177,11 +177,11 @@ resource "aviatrix_vpc" "az_ue2_spoke_prod_vpc" {
   aviatrix_firenet_vpc = false
 }
 
-resource "aviatrix_spoke_gateway" "az_ue2_spoke_prod_gw" {
+resource "aviatrix_spoke_gateway" "az_wu2_spoke_prod_gw" {
   cloud_type                        = 8
   account_name                      = var.az_access_account
   gw_name                           = var.az_spoke_prod_name
-  vpc_id                            = aviatrix_vpc.az_ue2_spoke_prod_vpc.vpc_id
+  vpc_id                            = aviatrix_vpc.az_wu2_spoke_prod_vpc.vpc_id
   vpc_reg                           = var.az_region
   gw_size                           = "Standard_B2ms"
   subnet                            = var.az_spoke_prod_gw_subnet
@@ -192,7 +192,7 @@ resource "aviatrix_spoke_gateway" "az_ue2_spoke_prod_gw" {
 
 
 # Azure Spoke QA VPC for West US 2
-resource "aviatrix_vpc" "az_ue2_spoke_qa_vpc" {
+resource "aviatrix_vpc" "az_wu2_spoke_qa_vpc" {
   cloud_type           = 8
   account_name         = var.az_access_account
   region               = var.az_region
@@ -202,11 +202,11 @@ resource "aviatrix_vpc" "az_ue2_spoke_qa_vpc" {
   aviatrix_firenet_vpc = false
 }
 
-resource "aviatrix_spoke_gateway" "az_ue2_spoke_qa_gw" {
+resource "aviatrix_spoke_gateway" "az_wu2_spoke_qa_gw" {
   cloud_type                        = 8
   account_name                      = var.az_access_account
   gw_name                           = var.az_spoke_qa_name
-  vpc_id                            = aviatrix_vpc.az_ue2_spoke_qa_vpc.vpc_id
+  vpc_id                            = aviatrix_vpc.az_wu2_spoke_qa_vpc.vpc_id
   vpc_reg                           = var.az_region
   gw_size                           = "Standard_B2ms"
   subnet                            = var.az_spoke_qa_gw_subnet
