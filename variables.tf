@@ -127,11 +127,11 @@ variable "aws_spoke_shared_services_cidr" {
 }
 variable "aws_spoke_shared_services_gw_subnet" {
   type = string
-  default = "10.16.10.96/28"
+  default = "10.16.10.48/28"
 }
 variable "aws_spoke_shared_services_gw_ha_subnet" {
   type = string
-  default = "10.16.10.112/28"
+  default = "10.16.10.64/28"
 }
 
 # Azure Transit
