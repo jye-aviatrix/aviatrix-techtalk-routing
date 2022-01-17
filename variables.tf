@@ -25,6 +25,11 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
+# AWS Transit
+variable "aws_transit_name" {
+  type = string
+  default = "aws-ue1-transit"
+}
 variable "aws_transit_cidr" {
   type = string
   default = "10.32.254.0/23"
@@ -40,8 +45,13 @@ variable "aws_transit_gw_ha_subnet" {
   default = "10.32.254.96/28"
 }
 
-variable "aws_transit_name" {
-  type = string
-  default = "aws-ue1-transit"
-}
+# AWS Spoke Prod
 
+variable "aws_spoke_prod_name" {
+  type = string
+  default = "aws-ue1-spoke-prod"
+}
+variable "aws_spoke_prod_cidr" {
+  type = string
+  default = "10.32.20.0/24"
+}
