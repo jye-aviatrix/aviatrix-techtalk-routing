@@ -55,6 +55,14 @@ variable "aws_spoke_prod_cidr" {
   type = string
   default = "10.32.20.0/24"
 }
+variable "aws_spoke_prod_gw_subnet" {
+  type = string
+  default = "10.32.20.96/28"
+}
+variable "aws_spoke_prod_gw_ha_subnet" {
+  type = string
+  default = "10.32.20.112/28"
+}
 
 
 # AWS Spoke QA
