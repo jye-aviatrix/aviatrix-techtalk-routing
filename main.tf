@@ -71,7 +71,7 @@ resource "aviatrix_vpc" "aws_ue1_spoke_qa_vpc" {
 resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
   cloud_type                        = 1
   account_name                      = var.aws_access_account
-  gw_name                           = var.aws_spoke_prod_name
+  gw_name                           = var.aws_spoke_qa_name
   vpc_id                            = aviatrix_vpc.aws_ue1_spoke_qa_vpc.vpc_id
   vpc_reg                           = var.aws_region
   gw_size                           = "t3.small"
