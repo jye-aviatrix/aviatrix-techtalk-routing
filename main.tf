@@ -1,13 +1,11 @@
 
-# AWS Transit for us-east-1
-module "transit_aws_ue1" {
-  source  = "terraform-aviatrix-modules/aws-transit/aviatrix"
-  version = "v4.0.2"
-
-  cidr = var.aws_transit_cidr
-  region = var.aws_region
-  account = var.aws_access_account
-  name = var.aws_transit_name
-  prefix = false
-  suffix = false
+# AWS Transit VPC for us-east-1
+resource "aviatrix_vpc" "aws_ue1_transit_vpc" {
+  cloud_type           = 1
+  account_name         = var.aws_access_account
+  region               = var.aws_region
+  name                 = var.aws_transit_name
+  cidr                 = var.aws_transit_cidr
+  aviatrix_transit_vpc = true
+  aviatrix_firenet_vpc = false
 }
