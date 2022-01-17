@@ -49,8 +49,8 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_prod_gw" {
   vpc_reg                           = var.aws_region
   gw_size                           = "t3.small"
   subnet                            = var.aws_spoke_prod_gw_subnet
-  ha_gw_size = "t3.small"
-  ha_subnet = var.aws_spoke_prod_gw_ha_subnet
+  ha_gw_size                        = "t3.small"
+  ha_subnet                         = var.aws_spoke_prod_gw_ha_subnet
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
@@ -66,4 +66,17 @@ resource "aviatrix_vpc" "aws_ue1_spoke_qa_vpc" {
   cidr                 = var.aws_spoke_qa_cidr
   aviatrix_transit_vpc = false
   aviatrix_firenet_vpc = false
+}
+
+resource "aviatrix_spoke_gateway" "aws_ue1_spoke_qa_gw" {
+  cloud_type                        = 1
+  account_name                      = var.aws_access_account
+  gw_name                           = var.aws_spoke_prod_name
+  vpc_id                            = aviatrix_vpc.aws_ue1_spoke_qa_vpc.vpc_id
+  vpc_reg                           = var.aws_region
+  gw_size                           = "t3.small"
+  subnet                            = var.aws_spoke_qa_gw_subnet
+  single_ip_snat                    = false
+  enable_active_mesh                = true
+  manage_transit_gateway_attachment = false
 }

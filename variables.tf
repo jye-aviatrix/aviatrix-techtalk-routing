@@ -74,3 +74,11 @@ variable "aws_spoke_qa_cidr" {
   type = string
   default = "10.32.120.0/24"
 }
+variable "aws_spoke_qa_gw_subnet" {
+  type = string
+  default = "10.32.120.96/28"
+}
+variable "aws_spoke_qa_gw_ha_subnet" {
+  type = string
+  default = "10.32.120.112/28"
+}
