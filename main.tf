@@ -114,6 +114,30 @@ resource "aviatrix_transit_gateway" "aws_ue2_transit_gw" {
 }
 
 
+# AWS Spoke Shared Service VPC for us-east-2
+resource "aviatrix_vpc" "aws_ue2_spoke_shared_services_vpc" {
+  cloud_type           = 1
+  account_name         = var.aws_access_account
+  region               = var.aws_region_ue2
+  name                 = var.aws_spoke_shared_services_name
+  cidr                 = var.aws_spoke_shared_services_cidr
+  aviatrix_transit_vpc = false
+  aviatrix_firenet_vpc = false
+}
+
+resource "aviatrix_spoke_gateway" "aws_ue2_spoke_shared_services_gw" {
+  cloud_type                        = 1
+  account_name                      = var.aws_access_account
+  gw_name                           = var.aws_spoke_shared_services_name
+  vpc_id                            = aviatrix_vpc.aws_ue2_spoke_shared_services_vpc.vpc_id
+  vpc_reg                           = var.aws_region_ue2
+  gw_size                           = "t3.small"
+  subnet                            = var.aws_spoke_shared_services_gw_subnet
+  single_ip_snat                    = false
+  enable_active_mesh                = true
+  manage_transit_gateway_attachment = false
+}
+
 # Azure Transit VPC for West US
 resource "aviatrix_vpc" "az_wu2_transit_firenet_vpc" {
   cloud_type           = 8

@@ -31,30 +31,6 @@ variable "az_region" {
 }
 
 
-# AWS Transit ue2
-variable "aws_region_ue2" {
-  type = string
-  default = "us-east-2"
-}
-
-variable "aws_transit_ue2_name" {
-  type = string
-  default = "aws-ue2-transit"
-}
-variable "aws_transit_ue2_cidr" {
-  type = string
-  default = "10.16.254.0/23"
-}
-
-variable "aws_transit_ue2_gw_subnet" {
-  type = string
-  default = "10.16.254.64/28"
-}
-
-variable "aws_transit_ue2_gw_ha_subnet" {
-  type = string
-  default = "10.16.254.96/28"
-}
 
 # AWS Transit ue1
 variable "aws_transit_name" {
@@ -114,6 +90,49 @@ variable "aws_spoke_qa_gw_ha_subnet" {
   default = "10.32.120.112/28"
 }
 
+
+# AWS Transit ue2
+variable "aws_region_ue2" {
+  type = string
+  default = "us-east-2"
+}
+
+variable "aws_transit_ue2_name" {
+  type = string
+  default = "aws-ue2-transit"
+}
+variable "aws_transit_ue2_cidr" {
+  type = string
+  default = "10.16.254.0/23"
+}
+
+variable "aws_transit_ue2_gw_subnet" {
+  type = string
+  default = "10.16.254.64/28"
+}
+
+variable "aws_transit_ue2_gw_ha_subnet" {
+  type = string
+  default = "10.16.254.96/28"
+}
+
+# AWS Spoke Shared Service
+variable "aws_spoke_shared_services_name" {
+  type = string
+  default = "aws-ue2-spoke-shared_services"
+}
+variable "aws_spoke_shared_services_cidr" {
+  type = string
+  default = "10.16.10.0/24"
+}
+variable "aws_spoke_shared_services_gw_subnet" {
+  type = string
+  default = "10.16.10.96/28"
+}
+variable "aws_spoke_shared_services_gw_ha_subnet" {
+  type = string
+  default = "10.16.10.112/28"
+}
 
 # Azure Transit
 variable "az_transit_firenet_name" {
