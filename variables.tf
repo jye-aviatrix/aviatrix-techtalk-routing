@@ -9,3 +9,23 @@ variable "controller_username" {
 variable "controller_password" {
   type = string
 }
+
+variable "aws_access_account" {
+  type = string
+  description = "Provide Aviatrix Access Account name"
+}
+
+variable "aws_region" {
+  type = string
+  default = "us-east-1"
+}
+
+variable "aws_transit_cidr" {
+  type = string
+  default = "10.32.254.0/23"
+}
+
+variable "aws_transit_name" {
+  type = string
+  default = "aws-ue1-transit"
+}
