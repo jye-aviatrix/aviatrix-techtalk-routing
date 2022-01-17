@@ -30,6 +30,16 @@ variable "aws_transit_cidr" {
   default = "10.32.254.0/23"
 }
 
+variable "aws_transit_gw_subnet" {
+  type = string
+  default = "10.32.254.64/28"
+}
+
+variable "aws_transit_gw_ha_subnet" {
+  type = string
+  default = "10.32.254.96/28"
+}
+
 variable "aws_transit_name" {
   type = string
   default = "aws-ue1-transit"
