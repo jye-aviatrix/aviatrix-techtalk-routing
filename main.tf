@@ -97,7 +97,7 @@ resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
   cloud_type         = 8
   account_name       = var.az_access_account
   gw_name            = var.az_transit_firenet_name
-  vpc_id             = aviatrix_vpc.az_wu_transit_firenet_vpc.vpc_id
+  vpc_id             = aviatrix_vpc.az_wu2_transit_firenet_vpc.vpc_id
   vpc_reg            = var.az_region
   gw_size            = "Standard_B2ms"
   subnet             = var.az_transit_firenet_gw_subnet
