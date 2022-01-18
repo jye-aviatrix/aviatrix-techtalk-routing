@@ -40,3 +40,15 @@ resource "aws_route_table_association" "main" {
   subnet_id      = aws_subnet.main.id
   route_table_id = aws_route_table.main.id
 }
+
+
+resource "aws_network_interface" "main" {
+  subnet_id       = aws_subnet.main.id
+  private_ips     = ["10.128.80.10"]
+#   security_groups = [aws_security_group.web.id]
+
+#   attachment {
+#     instance     = aws_instance.test.id
+#     device_index = 1
+#   }
+}
