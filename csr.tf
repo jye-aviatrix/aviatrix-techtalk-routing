@@ -79,7 +79,7 @@ resource "aws_security_group" "main" {
     from_port        = 0
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = [aws_vpc.main.cidr_block]
+    cidr_blocks      = ["${var.your_public_ip}/32"]
   }
 
   egress {

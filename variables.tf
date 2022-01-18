@@ -188,3 +188,7 @@ variable "az_spoke_qa_gw_subnet" {
 variable "aws_key_name" {
   type = string  
 }
+
+variable "your_public_ip" {
+  type = string
+}
