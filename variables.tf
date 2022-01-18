@@ -207,3 +207,9 @@ variable "aws_key_name" {
 variable "your_public_ip" {
   type = string
 }
+
+variable "additional_tags" {
+  default     = {}
+  description = "Additional resource tags"
+  type        = map(string)
+}

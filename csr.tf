@@ -52,10 +52,13 @@ resource "aws_instance" "main" {
     device_index         = 0
   }
 
-  key_name        = var.aws_key_name
-  tags = {
-    Name = "main"
-  }
+  key_name = var.aws_key_name
+  tags = merge(
+    var.additional_tags,
+    {
+      Name = "main"
+    }
+  )
 }
 
 

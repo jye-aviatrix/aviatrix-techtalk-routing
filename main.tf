@@ -26,7 +26,8 @@ resource "aviatrix_transit_gateway" "aws_ue1_transit_gw" {
   enable_active_mesh       = true
   enable_hybrid_connection = false
   connected_transit        = true
-  local_as_number = var.aws_transit_ue1_local_as_number
+  local_as_number          = var.aws_transit_ue1_local_as_number
+  tags                     = var.additional_tags
 }
 
 
@@ -56,6 +57,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_prod_gw" {
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
   single_az_ha                      = true
+  tags                              = var.additional_tags
 }
 
 
@@ -84,6 +86,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_shared_service_gw" {
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
   single_az_ha                      = true
+  tags                              = var.additional_tags
 }
 
 
@@ -115,6 +118,7 @@ resource "aviatrix_transit_gateway" "aws_ue2_transit_gw" {
   enable_hybrid_connection = false
   connected_transit        = true
   local_as_number          = var.aws_transit_ue2_local_as_number
+  tags                     = var.additional_tags
 }
 
 
@@ -141,6 +145,7 @@ resource "aviatrix_spoke_gateway" "aws_ue2_spoke_qa_gw" {
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
   single_az_ha                      = true
+  tags                              = var.additional_tags
 }
 
 # Azure Transit VPC for West US 2
@@ -169,6 +174,7 @@ resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
   connected_transit  = true
   enable_active_mesh = true
   local_as_number    = var.az_transit_firenet_local_as_number
+  tags               = var.additional_tags
 }
 
 
@@ -195,6 +201,7 @@ resource "aviatrix_spoke_gateway" "az_wu2_spoke_prod_gw" {
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
   single_az_ha                      = true
+  tags                              = var.additional_tags
 }
 
 
@@ -221,22 +228,23 @@ resource "aviatrix_spoke_gateway" "az_wu2_spoke_qa_gw" {
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
   single_az_ha                      = true
+  tags                              = var.additional_tags
 }
 
 
 resource "aviatrix_transit_external_device_conn" "transit_s2c" {
-    vpc_id = aviatrix_vpc.az_wu2_transit_firenet_vpc.vpc_id
-    connection_name = "s2c"
-    gw_name = aviatrix_transit_gateway.az_wu2_transit_firenet_gw.gw_name
-    remote_gateway_ip = aws_eip.main.public_ip
-    connection_type = "bgp"
-    direct_connect = false
-    bgp_local_as_num = var.az_transit_firenet_local_as_number
-    bgp_remote_as_num = "65128"
-    ha_enabled = false
-    local_tunnel_cidr = "169.254.225.74/30,169.254.39.26/30"
-    remote_tunnel_cidr = "169.254.225.73/30,169.254.39.25/30"
-    custom_algorithms = false
-    enable_ikev2 = true
+  vpc_id             = aviatrix_vpc.az_wu2_transit_firenet_vpc.vpc_id
+  connection_name    = "s2c"
+  gw_name            = aviatrix_transit_gateway.az_wu2_transit_firenet_gw.gw_name
+  remote_gateway_ip  = aws_eip.main.public_ip
+  connection_type    = "bgp"
+  direct_connect     = false
+  bgp_local_as_num   = var.az_transit_firenet_local_as_number
+  bgp_remote_as_num  = "65128"
+  ha_enabled         = false
+  local_tunnel_cidr  = "169.254.225.74/30,169.254.39.26/30"
+  remote_tunnel_cidr = "169.254.225.73/30,169.254.39.25/30"
+  custom_algorithms  = false
+  enable_ikev2       = true
 }
 
