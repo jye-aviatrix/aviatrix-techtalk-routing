@@ -54,6 +54,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_prod_gw" {
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
+  single_az_ha                      = true
 }
 
 
@@ -81,6 +82,7 @@ resource "aviatrix_spoke_gateway" "aws_ue1_spoke_shared_service_gw" {
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
+  single_az_ha                      = true
 }
 
 
@@ -136,6 +138,7 @@ resource "aviatrix_spoke_gateway" "aws_ue2_spoke_qa_gw" {
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
+  single_az_ha                      = true
 }
 
 # Azure Transit VPC for West US 2
@@ -188,6 +191,7 @@ resource "aviatrix_spoke_gateway" "az_wu2_spoke_prod_gw" {
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
+  single_az_ha                      = true
 }
 
 
@@ -213,4 +217,5 @@ resource "aviatrix_spoke_gateway" "az_wu2_spoke_qa_gw" {
   single_ip_snat                    = false
   enable_active_mesh                = true
   manage_transit_gateway_attachment = false
+  single_az_ha                      = true
 }
