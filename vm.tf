@@ -10,8 +10,8 @@ module "azwu2prodpub" {
   tags = var.additional_tags
 }
 
-output "azwu2prod-public-ip" {
-  value = module.azwu2prod.public_ip
+output "azwu2prodpub-public-ip" {
+  value = module.azwu2prodpub.public_ip
 }
 
 
@@ -27,8 +27,8 @@ module "azwu2qapub" {
   tags = var.additional_tags
 }
 
-output "azwu2qa-public-ip" {
-  value = module.azwu2qa.public_ip
+output "azwu2qapub-public-ip" {
+  value = module.azwu2qapub.public_ip
 }
 
 
