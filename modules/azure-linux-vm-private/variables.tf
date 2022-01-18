@@ -25,3 +25,8 @@ variable "admin_username" {
 variable "private_ip_address" {
   type = string
 }
+
+variable "tags" {
+  default = {}
+  type = map(string)
+}

@@ -8,7 +8,7 @@
 resource "azurerm_network_interface" "this" {
   name                = "${var.vm_name}-nic"
   location            = var.location
-  resource_group_name = var.resource_group_name  
+  resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "default"
@@ -104,4 +104,6 @@ resource "azurerm_linux_virtual_machine" "this" {
     sku       = "20_04-lts"
     version   = "latest"
   }
+
+  tags = var.tags
 }
