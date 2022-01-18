@@ -49,7 +49,7 @@ resource "aws_instance" "main" {
 
   network_interface {
     network_interface_id = aws_network_interface.main.id
-    device_index         = 0
+    device_index         = 1
   }
 
   key_name        = var.aws_key_name
@@ -101,10 +101,6 @@ resource "aws_network_interface" "main" {
   private_ips     = ["10.128.80.10"]
   security_groups = [aws_security_group.main.id]
 
-  attachment {
-    instance     = aws_instance.main.id
-    device_index = 1
-  }
   tags = {
     Name = "main"
   }
