@@ -213,3 +213,12 @@ variable "additional_tags" {
   description = "Additional resource tags"
   type        = map(string)
 }
+
+variable "public_key_data" {
+  type = string
+}
+
+variable "admin_username" {
+  default = "vmadmin"
+  type = string
+}
