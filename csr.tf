@@ -53,7 +53,6 @@ resource "aws_instance" "main" {
   }
 
   key_name        = var.aws_key_name
-  security_groups = [aws_security_group.main.id]
   tags = {
     Name = "main"
   }
