@@ -1,7 +1,3 @@
-module "az_wu2_prod" {
-  
-}
-
 module "azwu2prod" {
   source = "./modules/azure-linux-vm"
   vm_name = "azwu2prod"
