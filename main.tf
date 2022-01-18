@@ -28,6 +28,7 @@ resource "aviatrix_transit_gateway" "aws_ue1_transit_gw" {
   connected_transit        = true
   local_as_number          = var.aws_transit_ue1_local_as_number
   tags                     = var.additional_tags
+  single_az_ha             = true
 }
 
 
@@ -119,6 +120,7 @@ resource "aviatrix_transit_gateway" "aws_ue2_transit_gw" {
   connected_transit        = true
   local_as_number          = var.aws_transit_ue2_local_as_number
   tags                     = var.additional_tags
+  single_az_ha             = true
 }
 
 
@@ -176,6 +178,7 @@ resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
   enable_transit_firenet = true
   local_as_number        = var.az_transit_firenet_local_as_number
   tags                   = var.additional_tags
+  single_az_ha           = true
 }
 
 
