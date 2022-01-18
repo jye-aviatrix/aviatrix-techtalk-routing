@@ -52,3 +52,14 @@ resource "aws_network_interface" "main" {
 #     device_index = 1
 #   }
 }
+
+resource "aws_instance" "main" {
+  ami           = "ami-0d43ca842a14ff342" # us-east-2
+  instance_type = "t2.medium"
+
+  network_interface {
+    network_interface_id = aws_network_interface.main.id
+    device_index         = 0
+  }
+  key_name = var.aws_key_name
+}
