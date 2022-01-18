@@ -50,7 +50,7 @@ resource "aws_instance" "main" {
   private_ip = "10.128.80.10"
   subnet_id  = aws_subnet.main.id
   key_name   = var.aws_key_name
-  security_groups = [aws_security_group.main]
+  security_groups = [aws_security_group.main.id]
   tags = {
     Name = "main"
   }
