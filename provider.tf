@@ -26,3 +26,9 @@ provider "aviatrix" {
 
 provider "aws" {
 }
+
+provider "azurerm" {
+  features {
+    
+  }
+}
