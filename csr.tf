@@ -61,8 +61,6 @@ resource "aws_eip" "main" {
   vpc = true
 
   instance                  = aws_instance.main.id
-  associate_with_private_ip = "10.128.80.10"
-  depends_on                = [aws_internet_gateway.main]
   tags = {
     Name = "main"
   }
@@ -76,7 +74,7 @@ resource "aws_security_group" "main" {
 
   ingress {
     description      = "SSH"
-    from_port        = 0
+    from_port        = 22
     to_port          = 22
     protocol         = "tcp"
     cidr_blocks      = ["${var.your_public_ip}/32"]
@@ -92,5 +90,19 @@ resource "aws_security_group" "main" {
 
   tags = {
     Name = "allow_csr"
+  }
+}
+
+resource "aws_network_interface" "main" {
+  subnet_id       = aws_subnet.main.id
+  private_ips     = ["10.128.80.10"]
+  security_groups = [aws_security_group.main.id]
+
+  attachment {
+    instance     = aws_instance.main.id
+    device_index = 1
+  }
+  tags = {
+    Name = "main"
   }
 }
