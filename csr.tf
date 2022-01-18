@@ -49,7 +49,7 @@ resource "aws_instance" "main" {
 
   network_interface {
     network_interface_id = aws_network_interface.main.id
-    device_index         = 1
+    device_index         = 0
   }
 
   key_name        = var.aws_key_name
