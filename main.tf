@@ -161,25 +161,25 @@ resource "aviatrix_vpc" "az_wu2_transit_firenet_vpc" {
   aviatrix_firenet_vpc = true
 }
 
-# resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
-#   cloud_type             = 8
-#   account_name           = var.az_access_account
-#   gw_name                = var.az_transit_firenet_name
-#   vpc_id                 = aviatrix_vpc.az_wu2_transit_firenet_vpc.vpc_id
-#   vpc_reg                = var.az_region
-#   gw_size                = "Standard_B2ms"
-#   subnet                 = var.az_transit_firenet_gw_subnet
-#   zone                   = "az-1"
-#   ha_subnet              = var.az_transit_firenet_gw_ha_subnet
-#   ha_zone                = "az-2"
-#   ha_gw_size             = "Standard_B2ms"
-#   connected_transit      = true
-#   enable_active_mesh     = true
-# #   enable_transit_firenet = true
-#   local_as_number        = var.az_transit_firenet_local_as_number
-#   tags                   = var.additional_tags
-#   single_az_ha           = true
-# }
+resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
+  cloud_type             = 8
+  account_name           = var.az_access_account
+  gw_name                = var.az_transit_firenet_name
+  vpc_id                 = aviatrix_vpc.az_wu2_transit_firenet_vpc.vpc_id
+  vpc_reg                = var.az_region
+  gw_size                = "Standard_B2ms"
+  subnet                 = var.az_transit_firenet_gw_subnet
+  zone                   = "az-1"
+  ha_subnet              = var.az_transit_firenet_gw_ha_subnet
+  ha_zone                = "az-2"
+  ha_gw_size             = "Standard_B2ms"
+  connected_transit      = true
+  enable_active_mesh     = true
+  enable_transit_firenet = true
+  local_as_number        = var.az_transit_firenet_local_as_number
+  tags                   = var.additional_tags
+  single_az_ha           = true
+}
 
 
 # Azure Spoke Prod VPC for West US 2
