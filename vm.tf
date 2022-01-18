@@ -8,3 +8,7 @@ module "azwu2prod" {
   admin_username = var.admin_username
   private_ip_address = "10.64.20.20"
 }
+
+output "azwu2prod-public-ip" {
+  value = module.azwu2prod.public_ip
+}
