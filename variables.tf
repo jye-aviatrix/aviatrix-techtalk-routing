@@ -184,3 +184,7 @@ variable "az_spoke_qa_gw_subnet" {
   type = string
   default = "10.64.120.0/28"
 }
+
+variable "aws_key_name" {
+  type = string  
+}
