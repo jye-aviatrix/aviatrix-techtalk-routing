@@ -26,6 +26,7 @@ resource "aviatrix_transit_gateway" "aws_ue1_transit_gw" {
   enable_active_mesh       = true
   enable_hybrid_connection = false
   connected_transit        = true
+  local_as_number = var.aws_transit_ue1_local_as_number
 }
 
 
@@ -113,6 +114,7 @@ resource "aviatrix_transit_gateway" "aws_ue2_transit_gw" {
   enable_active_mesh       = true
   enable_hybrid_connection = false
   connected_transit        = true
+  local_as_number          = var.aws_transit_ue2_local_as_number
 }
 
 
@@ -166,6 +168,7 @@ resource "aviatrix_transit_gateway" "az_wu2_transit_firenet_gw" {
   ha_gw_size         = "Standard_B2ms"
   connected_transit  = true
   enable_active_mesh = true
+  local_as_number    = var.az_transit_firenet_local_as_number
 }
 
 

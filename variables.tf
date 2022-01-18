@@ -52,6 +52,11 @@ variable "aws_transit_gw_ha_subnet" {
   default = "10.32.254.96/28"
 }
 
+variable "aws_transit_ue1_local_as_number" {
+  type = string
+  default = "65032"
+}
+
 # AWS Spoke Prod
 
 variable "aws_spoke_prod_name" {
@@ -116,6 +121,11 @@ variable "aws_transit_ue2_gw_ha_subnet" {
   default = "10.16.254.96/28"
 }
 
+variable "aws_transit_ue2_local_as_number" {
+  type = string
+  default = "65016"
+}
+
 # AWS Spoke QA
 variable "aws_spoke_qa_name" {
   type = string
@@ -152,6 +162,11 @@ variable "az_transit_firenet_gw_subnet" {
 variable "az_transit_firenet_gw_ha_subnet" {
   type = string
   default = "10.64.252.48/28"
+}
+
+variable "az_transit_firenet_local_as_number" {
+  type = string
+  default = "65064"
 }
 
 
