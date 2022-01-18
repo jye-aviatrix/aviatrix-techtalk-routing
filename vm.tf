@@ -14,6 +14,18 @@ output "azwu2prodpub-public-ip" {
   value = module.azwu2prodpub.public_ip
 }
 
+module "azwu2prodpriv" {
+  source = "./modules/azure-linux-vm-private"
+  vm_name = "azwu2prodpriv"
+  resource_group_name = aviatrix_vpc.az_wu2_spoke_prod_vpc.resource_group
+  location = aviatrix_vpc.az_wu2_spoke_prod_vpc.region
+  subnet_id = aviatrix_vpc.az_wu2_spoke_prod_vpc.private_subnets[0].subnet_id
+  public_key_data = var.public_key_data
+  admin_username = var.admin_username
+  private_ip_address = "10.64.20.40"
+  tags = var.additional_tags
+}
+
 
 module "azwu2qapub" {
   source = "./modules/azure-linux-vm-public"
