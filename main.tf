@@ -236,19 +236,19 @@ resource "aviatrix_spoke_gateway" "az_wu2_spoke_qa_gw" {
 }
 
 
-resource "aviatrix_transit_external_device_conn" "transit_s2c" {
-  vpc_id             = aviatrix_vpc.az_wu2_transit_firenet_vpc.vpc_id
-  connection_name    = "s2c"
-  gw_name            = aviatrix_transit_gateway.az_wu2_transit_firenet_gw.gw_name
-  remote_gateway_ip  = aws_eip.main.public_ip
-  connection_type    = "bgp"
-  direct_connect     = false
-  bgp_local_as_num   = var.az_transit_firenet_local_as_number
-  bgp_remote_as_num  = "65128"
-  ha_enabled         = false
-  local_tunnel_cidr  = "169.254.225.74/30,169.254.39.26/30"
-  remote_tunnel_cidr = "169.254.225.73/30,169.254.39.25/30"
-  custom_algorithms  = false
-  enable_ikev2       = true
-}
+# resource "aviatrix_transit_external_device_conn" "transit_s2c" {
+#   vpc_id             = aviatrix_vpc.az_wu2_transit_firenet_vpc.vpc_id
+#   connection_name    = "s2c"
+#   gw_name            = aviatrix_transit_gateway.az_wu2_transit_firenet_gw.gw_name
+#   remote_gateway_ip  = aws_eip.main.public_ip
+#   connection_type    = "bgp"
+#   direct_connect     = false
+#   bgp_local_as_num   = var.az_transit_firenet_local_as_number
+#   bgp_remote_as_num  = "65128"
+#   ha_enabled         = false
+#   local_tunnel_cidr  = "169.254.225.74/30,169.254.39.26/30"
+#   remote_tunnel_cidr = "169.254.225.73/30,169.254.39.25/30"
+#   custom_algorithms  = false
+#   enable_ikev2       = true
+# }
 
