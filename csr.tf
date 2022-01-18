@@ -47,9 +47,12 @@ resource "aws_instance" "main" {
   ami           = "ami-0d43ca842a14ff342" # us-east-2
   instance_type = "t2.medium"
 
-  private_ip = "10.128.80.10"
-  subnet_id  = aws_subnet.main.id
-  key_name   = var.aws_key_name
+  network_interface {
+    network_interface_id = aws_network_interface.main.id
+    device_index         = 0
+  }
+
+  key_name        = var.aws_key_name
   security_groups = [aws_security_group.main.id]
   tags = {
     Name = "main"
@@ -60,7 +63,7 @@ resource "aws_instance" "main" {
 resource "aws_eip" "main" {
   vpc = true
 
-  instance                  = aws_instance.main.id
+  instance = aws_instance.main.id
   tags = {
     Name = "main"
   }
@@ -73,11 +76,11 @@ resource "aws_security_group" "main" {
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    description      = "SSH"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["${var.your_public_ip}/32"]
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["${var.your_public_ip}/32"]
   }
 
   egress {
