@@ -219,6 +219,6 @@ variable "public_key_data" {
 }
 
 variable "admin_username" {
-  default = "vmadmin"
+  default = "ec2-user"
   type = string
 }
