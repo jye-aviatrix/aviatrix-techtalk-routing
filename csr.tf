@@ -91,7 +91,7 @@ resource "aws_security_group" "main" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [aviatrix_transit_gateway.az_wu2_transit_firenet_gw.eip]
+    cidr_blocks = ["${aviatrix_transit_gateway.az_wu2_transit_firenet_gw.eip}/32"]
   }
 
   ingress {
@@ -99,7 +99,7 @@ resource "aws_security_group" "main" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [aviatrix_transit_gateway.az_wu2_transit_firenet_gw.ha_eip]
+    cidr_blocks = ["${aviatrix_transit_gateway.az_wu2_transit_firenet_gw.ha_eip}/32"]
   }
 
   egress {
