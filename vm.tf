@@ -58,14 +58,14 @@ module "azwu2qapriv" {
   tags = var.additional_tags
 }
 
-# AWS UE1 Prod
-module "awsue1prodpub" {
-  source = "./modules/aws-linux-vm-public"
-  vm_name = "awsue1prodpub"
-  key_name = var.aws_key_name
-  vpc_id = aviatrix_vpc.aws_ue1_spoke_prod_vpc.vpc_id
-  subnet_id = aviatrix_vpc.aws_ue1_spoke_prod_vpc.public_subnets[0].subnet_id
-  your_public_ip = var.your_public_ip  
-  private_ip = "10.32.20.100"
-  tags = var.additional_tags
-}
+# # AWS UE1 Prod
+# module "awsue1prodpub" {
+#   source = "./modules/aws-linux-vm-public"
+#   vm_name = "awsue1prodpub"
+#   key_name = var.aws_key_name
+#   vpc_id = aviatrix_vpc.aws_ue1_spoke_prod_vpc.vpc_id
+#   subnet_id = aviatrix_vpc.aws_ue1_spoke_prod_vpc.public_subnets[0].subnet_id
+#   your_public_ip = var.your_public_ip  
+#   private_ip = "10.32.20.100"
+#   tags = var.additional_tags
+# }
