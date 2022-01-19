@@ -1,3 +1,4 @@
+# AZ WU2 Prod
 module "azwu2prodpub" {
   source = "./modules/azure-linux-vm-public"
   vm_name = "azwu2prodpub"
@@ -27,6 +28,7 @@ module "azwu2prodpriv" {
 }
 
 
+# AZ WU2 QA
 module "azwu2qapub" {
   source = "./modules/azure-linux-vm-public"
   vm_name = "azwu2qapub"
@@ -53,5 +55,17 @@ module "azwu2qapriv" {
   public_key_data = var.public_key_data
   admin_username = var.admin_username
   private_ip_address = "10.64.120.40"
+  tags = var.additional_tags
+}
+
+# AWS UE1 Prod
+module "awsue1prodpub" {
+  source = "./modules/aws-linux-vm-public"
+  vm_name = "awsue1prodpub"
+  key_name = var.aws_key_name
+  vpc_id = aviatrix_vpc.aws_ue1_spoke_prod_vpc.vpc_id
+  subnet_id = aviatrix_vpc.aws_ue1_spoke_prod_vpc.public_subnets[0].subnet_id
+  your_public_ip = var.your_public_ip  
+  private_ip = "10.32.20.100"
   tags = var.additional_tags
 }
