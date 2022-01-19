@@ -85,6 +85,23 @@ resource "aws_security_group" "main" {
     cidr_blocks = ["${var.your_public_ip}/32"]
   }
 
+
+  ingress {
+    description = "TransitGW"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [aviatrix_transit_gateway.az_wu2_transit_firenet_gw.eip]
+  }
+
+  ingress {
+    description = "TransitGWHA"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [aviatrix_transit_gateway.az_wu2_transit_firenet_gw.ha_eip]
+  }
+
   egress {
     from_port        = 0
     to_port          = 0
