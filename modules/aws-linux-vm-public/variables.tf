@@ -1,10 +1,14 @@
 locals {
   tags = merge(
       {
-          Name = var.name
+          Name = var.vm_name
       },
       var.tags
   )
+}
+
+variable "vm_name" {
+  type = string
 }
 
 variable "tags" {
