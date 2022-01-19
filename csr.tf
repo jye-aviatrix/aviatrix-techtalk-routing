@@ -43,33 +43,33 @@ resource "aws_route_table_association" "main" {
 }
 
 
-resource "aws_instance" "main" {
-  ami           = "ami-0d43ca842a14ff342" # us-east-2
-  instance_type = "t2.medium"
+# resource "aws_instance" "main" {
+#   ami           = "ami-0d43ca842a14ff342" # us-east-2
+#   instance_type = "t2.medium"
 
-  network_interface {
-    network_interface_id = aws_network_interface.main.id
-    device_index         = 0
-  }
+#   network_interface {
+#     network_interface_id = aws_network_interface.main.id
+#     device_index         = 0
+#   }
 
-  key_name = var.aws_key_name
-  tags = merge(
-    var.additional_tags,
-    {
-      Name = "main"
-    }
-  )
-}
+#   key_name = var.aws_key_name
+#   tags = merge(
+#     var.additional_tags,
+#     {
+#       Name = "main"
+#     }
+#   )
+# }
 
 
-resource "aws_eip" "main" {
-  vpc = true
+# resource "aws_eip" "main" {
+#   vpc = true
 
-  instance = aws_instance.main.id
-  tags = {
-    Name = "main"
-  }
-}
+#   instance = aws_instance.main.id
+#   tags = {
+#     Name = "main"
+#   }
+# }
 
 
 resource "aws_security_group" "main" {
