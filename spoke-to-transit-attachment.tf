@@ -2,11 +2,11 @@
 
 
 
-# # AWS us-east-1 shared service to transit
-# resource "aviatrix_spoke_transit_attachment" "ue1_shared_service_to_transit" {
-#   spoke_gw_name   = aviatrix_spoke_gateway.aws_ue1_spoke_shared_service_gw.gw_name
-#   transit_gw_name = aviatrix_transit_gateway.aws_ue1_transit_gw.gw_name
-# }
+# AWS us-east-1 shared service to transit
+resource "aviatrix_spoke_transit_attachment" "ue1_shared_service_to_transit" {
+  spoke_gw_name   = aviatrix_spoke_gateway.aws_ue1_spoke_shared_service_gw.gw_name
+  transit_gw_name = aviatrix_transit_gateway.aws_ue1_transit_gw.gw_name
+}
 
 
 
